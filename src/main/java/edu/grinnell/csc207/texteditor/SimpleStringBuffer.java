@@ -11,37 +11,49 @@ public class SimpleStringBuffer {
         buffer = "";
         cursor = 0;
     }
-    
+
     public void insert(char ch) {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        String preString = buffer.substring(0, cursor);
+        String postString = buffer.substring(cursor, buffer.length());
+        buffer = preString + String.valueOf(ch) + postString;
+        cursor++;
     }
 
     public void delete() {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        if (buffer != "") {
+            String preString = buffer.substring(0, cursor-1);
+            String postString = buffer.substring(cursor, buffer.length());
+            buffer = preString + postString;
+            cursor--;
+        }
     }
 
     public int getCursorPosition() {
-        throw new UnsupportedOperationException("Unimplemented method 'getCursorPosition'");
+        return cursor;
     }
 
     public void moveLeft() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
+        if (cursor > 0) {
+            cursor--;
+        }
     }
 
     public void moveRight() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
+        if (cursor < buffer.length()) {
+            cursor++;
+        }
     }
 
     public int getSize() {
-        throw new UnsupportedOperationException("Unimplemented method 'getSize'");
+        return buffer.length();
     }
 
     public char getChar(int i) {
-        throw new UnsupportedOperationException("Unimplemented method 'getChar'");
+        return buffer.charAt(i);
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Unimplemented method 'toString'");
+        return buffer;
     }
 }
