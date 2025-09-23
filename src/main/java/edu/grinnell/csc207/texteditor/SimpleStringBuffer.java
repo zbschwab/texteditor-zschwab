@@ -12,6 +12,10 @@ public class SimpleStringBuffer {
         cursor = 0;
     }
 
+    /**
+     * inserts ch after cursor.
+     * @param ch
+     */
     public void insert(char ch) {
         String preString = buffer.substring(0, cursor);
         String postString = buffer.substring(cursor, buffer.length());
@@ -19,6 +23,9 @@ public class SimpleStringBuffer {
         cursor++;
     }
 
+    /**
+     * deletes char before cursor.
+     */
     public void delete() {
         if (buffer != "") {
             String preString = buffer.substring(0, cursor-1);
