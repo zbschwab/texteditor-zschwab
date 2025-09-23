@@ -13,7 +13,7 @@ public class SimpleStringBufferTests {
             testbuffer.insert((char) (97+i));
         }
 
-        assertEquals("abcdefghijklmnopqrs", testbuffer.toString());
+        assertEquals("abcdefghijklmnopqrst", testbuffer.toString());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class SimpleStringBufferTests {
         }
         testbuffer.delete();
 
-        assertEquals("abcdefghijklmnopqr", testbuffer.toString());
+        assertEquals("abcdefghijklmnopqrs", testbuffer.toString());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class SimpleStringBufferTests {
         testbuffer.moveLeft();
         testbuffer.moveRight();
 
-        assertEquals(18, testbuffer.getCursorPosition());
+        assertEquals(19, testbuffer.getCursorPosition());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class SimpleStringBufferTests {
         }
         testbuffer.moveRight();
 
-        assertEquals(19, testbuffer.getCursorPosition());
+        assertEquals(20, testbuffer.getCursorPosition());
     }
 
     // add property tests here
