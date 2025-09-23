@@ -4,6 +4,14 @@ package edu.grinnell.csc207.texteditor;
  * A naive implementation of a text buffer using a <code>String</code>.
  */
 public class SimpleStringBuffer {
+    private String buffer;
+    private int cursor;
+
+    public SimpleStringBuffer() {
+        buffer = "";
+        cursor = 0;
+    }
+    
     public void insert(char ch) {
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
