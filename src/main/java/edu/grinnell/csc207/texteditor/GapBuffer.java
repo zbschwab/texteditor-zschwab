@@ -11,25 +11,24 @@ public class GapBuffer {
     private int cur2;
 
     public GapBuffer() {
-        this.sz = 16;
+        this(16);
     }
 
     public GapBuffer(int capacity) {
         sz = capacity;
         buffer = new char[sz];
         cur1 = 0;
-        cur2 = 15;
+        cur2 = 16;
     }
 
     public void insert(char ch) {
-        if (cur1 >= cur2) {
-            
+        if ((cur2 - cur1) <= 1) {
             sz = sz * 2;
             char[] newBuffer = new char[sz];
 
             System.arraycopy(buffer, 0, newBuffer, 0, cur1);
-            System.arraycopy(buffer, 0, newBuffer, cur2, buffer.length - cur2);
-            cur2 = cur1 + sz;
+            System.arraycopy(buffer, cur2, newBuffer, newBuffer.length - (buffer.length - cur2), buffer.length - cur2);
+            cur2 = newBuffer.length - (buffer.length - cur2);
             buffer = newBuffer;
         }
 
@@ -38,27 +37,43 @@ public class GapBuffer {
     }
 
     public void delete() {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        if (cur1 > 0) {
+            cur1--;
+        }
     }
 
     public int getCursorPosition() {
-        throw new UnsupportedOperationException("Unimplemented method 'getCursorPosition'");
+        return cur1;
     }
 
     public void moveLeft() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
+        if (cur1 > 0) {
+            cur1--;
+            cur2--;
+            buffer[cur2] = buffer[cur1];
+        }
     }
 
     public void moveRight() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
+        if (cur2 < (buffer.length-1)) {
+            buffer[cur1] = buffer[cur2];
+            cur1++;
+            cur2++;
+        }
     }
 
     public int getSize() {
-        throw new UnsupportedOperationException("Unimplemented method 'getSize'");
+        return buffer.length - (cur2 - cur1);
     }
 
     public char getChar(int i) {
-        throw new UnsupportedOperationException("Unimplemented method 'getChar'");
+        if (i < 0 || i >= getSize()) {
+            throw new IndexOutOfBoundsException();
+        } else if (i < cur1) {
+            return buffer[i];
+        } else {
+            return buffer[i + (cur2 - cur1)];
+        }
     }
 
     @Override
