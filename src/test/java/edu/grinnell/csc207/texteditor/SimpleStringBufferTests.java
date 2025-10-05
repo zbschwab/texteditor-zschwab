@@ -1,9 +1,6 @@
 package edu.grinnell.csc207.texteditor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
 
 import net.jqwik.api.ForAll;
@@ -11,12 +8,12 @@ import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
 
 public class SimpleStringBufferTests {
-    
+
     @Test
     public void insertAtBackTest() {
         SimpleStringBuffer testbuffer = new SimpleStringBuffer();
         for (int i = 0; i < 20; i++) {
-            testbuffer.insert((char) (97+i));
+            testbuffer.insert((char) (97 + i));
         }
 
         assertEquals("abcdefghijklmnopqrst", testbuffer.toString());
@@ -26,7 +23,7 @@ public class SimpleStringBufferTests {
     public void deleteCharTest() {
         SimpleStringBuffer testbuffer = new SimpleStringBuffer();
         for (int i = 0; i < 20; i++) {
-            testbuffer.insert((char) (97+i));
+            testbuffer.insert((char) (97 + i));
         }
         testbuffer.delete();
 
@@ -39,13 +36,13 @@ public class SimpleStringBufferTests {
         testbuffer.delete();
 
         assertEquals(0, testbuffer.getSize());
-        }
+    }
 
     @Test
     public void moveCursorTest() {
         SimpleStringBuffer testbuffer = new SimpleStringBuffer();
         for (int i = 0; i < 20; i++) {
-            testbuffer.insert((char) (97+i));
+            testbuffer.insert((char) (97 + i));
         }
         testbuffer.moveLeft();
         testbuffer.moveLeft();
@@ -58,7 +55,7 @@ public class SimpleStringBufferTests {
     public void tryPassBufferEndTest() {
         SimpleStringBuffer testbuffer = new SimpleStringBuffer();
         for (int i = 0; i < 20; i++) {
-            testbuffer.insert((char) (97+i));
+            testbuffer.insert((char) (97 + i));
         }
         testbuffer.moveRight();
 
@@ -69,8 +66,8 @@ public class SimpleStringBufferTests {
     public boolean bufferInsert(@ForAll @IntRange(min = 0, max = 100) int sz) {
         SimpleStringBuffer testbuffer = new SimpleStringBuffer();
         for (int i = 0; i < sz; i++) {
-            testbuffer.insert((char) (97+i));
+            testbuffer.insert((char) (97 + i));
         }
         return testbuffer.getSize() == sz;
     }
- }
+}
