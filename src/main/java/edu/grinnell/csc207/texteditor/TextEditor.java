@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -23,7 +22,7 @@ public class TextEditor {
      * @param args command-line arguments.
      */
     public static void main(String[] args) throws IOException {
-        
+        System.out.println("Starting Text Editor...");
         Screen screen = new DefaultTerminalFactory().createScreen();
         screen.startScreen();
 
@@ -42,6 +41,9 @@ public class TextEditor {
                 for (int i = 0; i < fileString.length(); i++) {
                     buf.insert(fileString.charAt(i));
                 }
+                System.out.println("File read.");
+            } else {
+                Files.writeString(Paths.get(path), buf.toString());
             }
         } else {
             System.err.println("Usage: <filename> must point to valid file or directory");
@@ -66,8 +68,10 @@ public class TextEditor {
 
             drawBuffer(buf, screen);
 
-        screen.stopScreen();
         }
+        screen.stopScreen();
+
+        Files.writeString(Paths.get(path), buf.toString());
     }
 
     /**
@@ -77,12 +81,11 @@ public class TextEditor {
      * @throws IOException
      */
     public static void drawBuffer(GapBuffer buf, Screen screen) throws IOException {
-
-        TerminalSize size = screen.getTerminalSize();
-        TerminalPosition pos = new TerminalPosition(size.getColumns()/3 + buf.getCursorPosition(), size.getRows()/3);
+        TerminalPosition pos = new TerminalPosition(buf.getCursorPosition(),0);
+        screen.clear();
 
         for (int i = 0; i < buf.getSize(); i++) {
-            screen.setCharacter(pos.getColumn()+i, pos.getRow(), 
+            screen.setCharacter(i, 0, 
             TextCharacter.fromCharacter(
                 buf.getChar(i),
                 TextColor.ANSI.WHITE,
