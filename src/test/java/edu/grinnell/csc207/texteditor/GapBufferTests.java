@@ -65,6 +65,23 @@ public class GapBufferTests {
         assertEquals(19, testbuffer.getCursorPosition());
     }
 
+        @Test
+    public void moveCursorTest2() {
+        GapBuffer testbuffer = new GapBuffer();
+        for (int i = 0; i < 3; i++) {
+            testbuffer.insert((char) (97 + i));
+        }
+        testbuffer.moveLeft();
+        testbuffer.moveLeft();
+        testbuffer.moveLeft();
+        testbuffer.moveLeft();
+        testbuffer.moveRight();
+        testbuffer.moveRight();
+        testbuffer.moveRight();
+
+        assertEquals(3, testbuffer.getCursorPosition());
+    }
+
     @Test
     public void tryPassBufferFrontTest() {
         GapBuffer testbuffer = new GapBuffer();
