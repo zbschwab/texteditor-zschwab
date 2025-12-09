@@ -55,7 +55,7 @@ public class GapBuffer {
     }
 
     public void moveRight() {
-        if (cur2 < (buffer.length-1)) {
+        if (cur2 < buffer.length) {
             buffer[cur1] = buffer[cur2];
             cur1++;
             cur2++;
