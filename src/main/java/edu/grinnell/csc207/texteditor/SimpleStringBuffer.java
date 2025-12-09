@@ -27,7 +27,7 @@ public class SimpleStringBuffer {
      * deletes char before cursor.
      */
     public void delete() {
-        if (buffer != "") {
+        if (!"".equals(buffer) && (getCursorPosition() > 0)) {
             String preString = buffer.substring(0, cursor-1);
             String postString = buffer.substring(cursor, buffer.length());
             buffer = preString + postString;
