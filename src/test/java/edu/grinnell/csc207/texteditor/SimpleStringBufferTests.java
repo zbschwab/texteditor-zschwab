@@ -31,6 +31,20 @@ public class SimpleStringBufferTests {
     }
 
     @Test
+    public void deleteFrontTest() {
+        SimpleStringBuffer testbuffer = new SimpleStringBuffer();
+        for (int i = 0; i < 3; i++) {
+            testbuffer.insert((char) (97 + i));
+        }
+        testbuffer.moveLeft();
+        testbuffer.moveLeft();
+        testbuffer.moveLeft();
+        testbuffer.delete();
+
+        assertEquals("abc", testbuffer.toString());
+    }
+
+    @Test
     public void tryDeleteEmptyBufferTest() {
         SimpleStringBuffer testbuffer = new SimpleStringBuffer();
         testbuffer.delete();
