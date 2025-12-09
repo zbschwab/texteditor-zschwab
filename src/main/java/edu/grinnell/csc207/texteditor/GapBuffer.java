@@ -4,7 +4,6 @@ package edu.grinnell.csc207.texteditor;
  * A gap buffer-based implementation of a text buffer.
  */
 public class GapBuffer {
-
     private char[] buffer;
     private int sz;
     private int cur1;
@@ -21,13 +20,19 @@ public class GapBuffer {
         cur2 = 16;
     }
 
+    /**
+     * inserts ch after cur1.
+     * 
+     * @param ch
+     */
     public void insert(char ch) {
         if ((cur2 - cur1) <= 1) {
             sz = sz * 2;
             char[] newBuffer = new char[sz];
 
             System.arraycopy(buffer, 0, newBuffer, 0, cur1);
-            System.arraycopy(buffer, cur2, newBuffer, newBuffer.length - (buffer.length - cur2), buffer.length - cur2);
+            System.arraycopy(buffer, cur2, newBuffer, newBuffer.length - (buffer.length - cur2),
+                    buffer.length - cur2);
             cur2 = newBuffer.length - (buffer.length - cur2);
             buffer = newBuffer;
         }
@@ -36,6 +41,9 @@ public class GapBuffer {
         cur1++;
     }
 
+    /**
+     * deletes char by expanding left side of gap
+     */
     public void delete() {
         if (cur1 > 0) {
             cur1--;
@@ -81,10 +89,10 @@ public class GapBuffer {
         String stringBuffer = "";
         for (int i = 0; i < cur1; i++) {
             stringBuffer = stringBuffer + String.valueOf(buffer[i]);
-        } 
+        }
         for (int i = cur2; i < buffer.length; i++) {
             stringBuffer = stringBuffer + String.valueOf(buffer[i]);
-        } 
+        }
         return stringBuffer;
     }
 }

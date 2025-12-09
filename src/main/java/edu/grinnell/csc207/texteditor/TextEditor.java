@@ -81,12 +81,12 @@ public class TextEditor {
      * @throws IOException
      */
     public static void drawBuffer(GapBuffer buf, Screen screen) throws IOException {
-        TerminalPosition pos = new TerminalPosition(buf.getCursorPosition(),0);
+        TerminalPosition pos = new TerminalPosition(buf.getCursorPosition(), 0);
         screen.clear();
 
         for (int i = 0; i < buf.getSize(); i++) {
             screen.setCharacter(i, 0, 
-            TextCharacter.fromCharacter(
+                TextCharacter.fromCharacter(
                 buf.getChar(i),
                 TextColor.ANSI.WHITE,
                 TextColor.ANSI.BLACK)[0]);
