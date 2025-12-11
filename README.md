@@ -11,6 +11,12 @@
 
 ## Changelog
 
+commit e9c9172ddaf8f6cad77d0af61c410e0ee62723a3 (HEAD -> main)
+Author: Z Schwab <zbajraktarischwab@gmail.com>
+Date:   Wed Dec 10 18:09:17 2025 -0600
+
+    i'm going to set the autograder on fire with my mind
+
 commit a2ef44b2dfaf1b5b5a9f644820e1014cd53efdf9 (HEAD -> main)
 Author: Z Schwab <zbajraktarischwab@gmail.com>
 Date:   Wed Dec 10 18:04:37 2025 -0600
