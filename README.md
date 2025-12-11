@@ -11,7 +11,49 @@
 
 ## Changelog
 
-commit c09694401b627d42e219b77b66197703dc1ca6b4 (HEAD -> main, origin/main, origin/HEAD)
+commit a2ef44b2dfaf1b5b5a9f644820e1014cd53efdf9 (HEAD -> main)
+Author: Z Schwab <zbajraktarischwab@gmail.com>
+Date:   Wed Dec 10 18:04:37 2025 -0600
+
+    added useless javadocs to trivial functions to pass the autograder
+
+commit 5ee5c593636e528f07f4653aa3dd2c1559626728 (HEAD -> main, origin/main, origin/HEAD)
+Author: Z Schwab <zbajraktarischwab@gmail.com>
+Date:   Mon Dec 8 22:04:01 2025 -0600
+
+    style fixes
+
+commit 2aae3b5f2e6c6f673c9477897f46007c007c33e8
+Author: Z Schwab <zbajraktarischwab@gmail.com>
+Date:   Mon Dec 8 21:28:52 2025 -0600
+
+    fixed off my one bug in moveRight
+
+commit ae2e84f59e71b2d7b8ea4c378852ed269e9efe1c
+Author: Z Schwab <zbajraktarischwab@gmail.com>
+Date:   Mon Dec 8 21:28:07 2025 -0600
+
+    added unit test for failed autograder test
+
+commit 3c3af2ee290e29f955c53431b7055efc2f5d0fdc
+Author: Z Schwab <zbajraktarischwab@gmail.com>
+Date:   Mon Dec 8 21:07:47 2025 -0600
+
+    fixed out of bounds index bug when deleting from front
+
+commit d7717f9200cbe41a8d20ef3a1fe65bb02b7d77b3
+Author: Z Schwab <zbajraktarischwab@gmail.com>
+Date:   Mon Dec 8 21:07:20 2025 -0600
+
+    added test for deleting from front edgecase
+
+commit 598f2f76cb69f871b7dcebc841d61439fbb4e7c2
+Author: Z Schwab <schwabz@grinnell.edu>
+Date:   Mon Oct 6 16:55:40 2025 -0500
+
+    wrote README
+
+commit c09694401b627d42e219b77b66197703dc1ca6b4
 Author: Z Schwab <schwabz@grinnell.edu>
 Date:   Mon Oct 6 16:51:36 2025 -0500
 
