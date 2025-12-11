@@ -9,10 +9,16 @@ public class GapBuffer {
     private int cur1;
     private int cur2;
 
+    /**
+     * gap buffer initialized with 16 char spaces
+     */
     public GapBuffer() {
         this(16);
     }
 
+    /**
+     * @param capacity of new gap buffer
+     */
     public GapBuffer(int capacity) {
         sz = capacity;
         buffer = new char[sz];
@@ -50,11 +56,17 @@ public class GapBuffer {
         }
     }
 
+    /**
+     * @return cursor position
+     */
     public int getCursorPosition() {
         return cur1;
     }
 
-    public void moveLeft() {
+    /**
+     * move left
+     */
+    public void moveLeft() { 
         if (cur1 > 0) {
             cur1--;
             cur2--;
@@ -62,6 +74,9 @@ public class GapBuffer {
         }
     }
 
+    /**
+     * move right
+     */
     public void moveRight() {
         if (cur2 < buffer.length) {
             buffer[cur1] = buffer[cur2];
@@ -70,10 +85,16 @@ public class GapBuffer {
         }
     }
 
+    /**
+     * return buffer length
+     */
     public int getSize() {
         return buffer.length - (cur2 - cur1);
     }
 
+    /**
+     * @return char at index i in buffer
+     */
     public char getChar(int i) {
         if (i < 0 || i >= getSize()) {
             throw new IndexOutOfBoundsException();
@@ -84,6 +105,9 @@ public class GapBuffer {
         }
     }
 
+    /**
+     * convert char[] gap buffer to String
+     */
     @Override
     public String toString() {
         String stringBuffer = "";

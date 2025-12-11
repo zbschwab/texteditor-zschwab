@@ -7,6 +7,9 @@ public class SimpleStringBuffer {
     private String buffer;
     private int cursor;
 
+    /**
+     * empty string buffer initialized
+     */
     public SimpleStringBuffer() {
         buffer = "";
         cursor = 0;
@@ -35,30 +38,48 @@ public class SimpleStringBuffer {
         }
     }
 
+    /**
+     * get cursor position
+     */
     public int getCursorPosition() {
         return cursor;
     }
 
+    /**
+     * move left
+     */
     public void moveLeft() {
         if (cursor > 0) {
             cursor--;
         }
     }
 
+    /**
+     * move right
+     */
     public void moveRight() {
         if (cursor < buffer.length()) {
             cursor++;
         }
     }
 
+    /**
+     * @return size of buffer
+     */
     public int getSize() {
         return buffer.length();
     }
 
+    /**
+     * @return char at index i
+     */
     public char getChar(int i) {
         return buffer.charAt(i);
     }
 
+    /**
+     * return buffer as String
+     */
     @Override
     public String toString() {
         return buffer;
