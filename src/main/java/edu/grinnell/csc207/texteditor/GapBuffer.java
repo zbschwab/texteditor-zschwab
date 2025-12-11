@@ -86,13 +86,14 @@ public class GapBuffer {
     }
 
     /**
-     * return buffer length
+     * @return buffer length
      */
     public int getSize() {
         return buffer.length - (cur2 - cur1);
     }
 
     /**
+     * @param i index
      * @return char at index i in buffer
      */
     public char getChar(int i) {

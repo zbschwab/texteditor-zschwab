@@ -31,7 +31,7 @@ public class SimpleStringBuffer {
      */
     public void delete() {
         if (!"".equals(buffer) && (getCursorPosition() > 0)) {
-            String preString = buffer.substring(0, cursor-1);
+            String preString = buffer.substring(0, cursor - 1);
             String postString = buffer.substring(cursor, buffer.length());
             buffer = preString + postString;
             cursor--;
@@ -39,7 +39,7 @@ public class SimpleStringBuffer {
     }
 
     /**
-     * get cursor position
+     * @return cursor position
      */
     public int getCursorPosition() {
         return cursor;
@@ -71,6 +71,7 @@ public class SimpleStringBuffer {
     }
 
     /**
+     * @param i index
      * @return char at index i
      */
     public char getChar(int i) {
